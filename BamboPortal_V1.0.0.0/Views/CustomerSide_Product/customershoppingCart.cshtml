@@ -1,0 +1,118 @@
+﻿@model BamboPortal_V1._0._0._0.ModelViews.CustomerSide.ShoppingCartModelView
+@{
+    ViewBag.Title = "customershoppingCart";
+    Layout = "~/Views/SharedViewPages/CustomerSide/CustomerMaster.cshtml";
+}
+
+<div class="container cart" style="padding-bottom: 30px;">
+    <div class="row">
+        <div class="col-sm-12 mar-top-100 mar-bot-50"></div>
+        <div class="col-md-12">
+            <h4>
+                <i class="fa fa-chevron-left tshfatrtry3"></i>
+                سبد خرید
+            </h4>
+            <div class="table-responsive cart-responsive">
+                <table class="table table-condensed table-cart">
+                    <tr>
+                        <th>نام محصول</th>
+                        <th>قیمت</th>
+                        <th>مقدار</th>
+                        <th>قیمت نهایی</th>
+                        <th>عملیات</th>
+                    </tr>
+                    <tbody class="tbdy">
+                        @foreach (var item in Model.FactorModel.items)
+                        {
+                            <tr>
+                                <td class="cart-item-details tableGray">
+                                    <div class="cart-item">
+                                        <a class="item thumbnail" style="float: right" href="#"><img alt="image" src="@item.ImagePath"></a>
+                                        <div class="cart-item-container" style="text-align: right">
+                                            <p class="cart-item-name"><a href="#">@item.Title</a></p>
+                                            <p class="cart-item-size">@item.property</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="cart-item-price tblWhite first-price">
+                                    <span  class="price" data-price="@item.PriceXQ" id="pricecalc-@item.Id">@item.PriceXQ</span>
+                                </td>
+                                <td class="cart-item-quantity tableGray">
+                                    <div>
+                                        <input type='button' id="L-@item.Id" value='-' class='qtyminus btn shcqm' title='quantity1' />
+                                        <input type='text' id="QT-@item.Id" name='quantity1' value='@item.number' class='qty' readonly=""   />
+                                        <input type='button' id="R-@item.Id" value='+' class='qtyplus btn shcqp' title='quantity1' />
+                                        <p>متر</p>
+                                    </div>
+                                </td>
+                                <td class="cart-item-price tblWhite last-price">
+                                    <span class="price total-items" id="last-price-@item.Id">@item.total</span>
+                                </td>
+                                <td class="tableGray">
+                                    <button class="btn btn-danger remove-cart-item" href="#" id="Rremove-cart-item-@item.Id"><i class="fa fa-trash-o"></i></button>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <span class="cart-no-item">سبد خرید خالی است</span>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-6 mar-top-50 review-cart-block">
+            <h5 class="review-cart-heading">
+                <span class="blocked">پرداخت</span>
+            </h5>
+            <div class="cart-review">
+                <div class="inner row">
+                    <div class="col-md-6 col-xs-6 text-left no-padding-right">
+                        <div class="rows sub-total price total-price-bottom">@Model.FactorModel.totality</div>
+                        <div class="rows sub-total price shipping-price-bottom"></div>
+                        <div class="rows sub-total price off-price-bottom">0</div>
+                        <div class="rows sub-total price cart-total">@Model.FactorModel.Deposit</div>
+                    </div>
+                    <div class="col-xs-6 text-right no-padding-left cart-bottom">
+                        <div class="rows">مجموع</div>
+                        <div class="rows">حمل و نقل</div>
+                        <div class="rows">میزان تخفیف</div>
+                        <div class="rows">مبلغ قابل پرداخت</div>
+                    </div>
+                    <div class="col-md-12" style="border-top: 1px solid rgba(0,0,0,.1);padding-top: 15px;">
+                        <a href="#" class="coupon-trigger"><p class="text-right coupon">کد تخفیف دارید؟</p></a>
+                        <div class="inner coupon-code no-padding-left no-padding-right">
+                            <div class="input-group form-theme form-white form-small">
+                                <input type="text" class="form-control coupon-input" placeholder="کد تخفیف">
+                                <span class="input-group-btn">
+                                    <a href="#" class="btn btn-primary form-submit coupon-fa"><i class="fa fa-check"></i></a>
+                                </span>
+                            </div>
+                            <span class="coupon-error">کد تخفیف نامعتبر است</span><br>
+                            <span class="coupon-success">کد تخفیف اعمال شد</span>
+                        </div>
+                        <button class="btn btn-success btn-cart" onclick="return CSCFinishShopping(this)">پرداخت</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mar-top-50">
+            <h4>
+                <i class="fa fa-chevron-left tshfatrtry3"></i>
+                توضیحات
+            </h4>
+            <div class="form-theme">
+                <ul class="desc-ul">
+                    <li>مسئولیت‌های مربوط به کیفیت، قیمت، محتوا، شرایط و همچنین خدمات پس از فروش محصول بر عهده انتشارات جنگل است.</li>
+                    <li>مسئولیت‌های مربوط به کیفیت، قیمت، محتوا، شرایط و همچنین خدمات پس از فروش محصول بر عهده انتشارات جنگل است.</li>
+                    <li>مسئولیت‌های مربوط به کیفیت، قیمت، محتوا، شرایط و همچنین خدمات پس از فروش محصول بر عهده انتشارات جنگل است.</li>
+                    <li>مسئولیت‌های مربوط به کیفیت، قیمت، محتوا، شرایط و همچنین خدمات پس از فروش محصول بر عهده انتشارات جنگل است.</li>
+                    <li>مسئولیت‌های مربوط به کیفیت، قیمت، محتوا، شرایط و همچنین خدمات پس از فروش محصول بر عهده انتشارات جنگل است.</li>
+                    <li>مسئولیت‌های مربوط به کیفیت، قیمت، محتوا، شرایط و همچنین خدمات پس از فروش محصول بر عهده انتشارات جنگل است.</li>
+                    <li>مسئولیت‌های مربوط به کیفیت، قیمت، محتوا، شرایط و همچنین خدمات پس از فروش محصول بر عهده انتشارات جنگل است.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+

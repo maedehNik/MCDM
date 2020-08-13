@@ -1,0 +1,103 @@
+﻿@model BamboPortal_V1._0._0._0.ModelViews.CustomerSide.ShoppingBasket
+@{
+    ViewBag.Title = "ShoppingCartSlide";
+
+    Int64 total = 0;
+    for(int i = 0; i < Model.Items.Count; i++)
+    {
+        total += Model.Items[i].Totals;
+    }
+}
+@if (Model.islogin)
+{
+
+
+    <div class="shopping-cart-slide">
+
+        <div class="title">
+            سبد خرید شما
+            <br />
+            (@Model.Items.Count) کالا
+        </div>
+        @foreach (var item in Model.Items)
+        {
+            <div class="cart-items">
+                <div class="cart-item">
+                    <div class="cart-item-remove" id="R-@item.idmpc" ><a href="#"><i class="fa fa-trash-o"></i></a></div>
+                    <div class="cart-item-image">
+                        <img alt="image" src="@item.ImagePath" onerror="this.onerror=null;this.src='/CustomerSide_desinerResource/images/shop/imgNotFount.jpg'" />
+                    </div>
+                    <div class="cart-item-info">
+                        <div class="item-name"><a href="#">@item.Title</a></div>
+                        <div class="item-quantity">
+                            <span class='qtyminus '>تعداد</span>
+                            <input type='text' name='quantity5' value='@item.CountOf' class='qty' />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="cart-item-price">@item.Totals</div>
+                </div>
+
+
+                @*<div class="cart-item">
+                    <button class="btn btn-info" style="width: 100%;">ابتدا وارد حساب کاربری خود شوید</button>
+                </div>*@
+
+                <!--=============================================================CART ITEMS END-->
+
+            </div>
+        }
+        <div class="cart-footer">
+            <div class="cart-sub grand-total">
+                <div class="cart-sub-amount">
+                    @String.Format("{0:n0}", total.ToString()) ريال
+                </div>
+                <div class="text">
+                    مبلغ قابل پرداخت
+                </div>
+
+            </div>
+            <div class="cart-order-links">
+                <a class="btn shopping-cart-trigger">بستن</a>
+                <a class="btn btn-success" href="@Url.Action("customershoppingCart","CustomerSide_Product")">پرداخت</a>
+            </div>
+        </div>
+    </div>
+}
+else
+{ 
+    <div class="shopping-cart-slide">
+        <div class="title">
+            سبد خرید شما
+            <br />
+            (0) کالا
+        </div>
+        <div class="cart-items">
+            <div class="cart-item">
+                <a href="@Url.Action("loginandregister","CustomerSide_Register")" class="btn btn-info" style="width: 100%;">ابتدا وارد حساب کاربری خود شوید</a>
+            </div>
+
+            <!--=============================================================CART ITEMS END-->
+
+        </div>
+        <div class="cart-footer">
+
+
+
+            @*<div class="cart-sub grand-total">
+                    <div class="cart-sub-amount">
+                        1000 ريال
+                    </div>
+                    <div class="text">
+                        مبلغ قابل پرداخت
+                    </div>
+
+                </div>
+                <div class="cart-order-links">
+                    <a class="btn shopping-cart-trigger">بستن</a>
+                    <a class="btn btn-success">پرداخت</a>
+                </div>*@
+        </div>
+    </div>
+}
+
