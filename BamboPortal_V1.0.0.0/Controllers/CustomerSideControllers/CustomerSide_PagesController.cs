@@ -1,4 +1,6 @@
-﻿using BamboPortal_V1._0._0._0.ModelFiller.CustomerSide;
+﻿using BamboPortal_V1._0._0._0.DatabaseCenter.Class;
+using BamboPortal_V1._0._0._0.ModelFiller.CustomerSide;
+using BamboPortal_V1._0._0._0.Models.CustomerSide.BlogModels;
 using BamboPortal_V1._0._0._0.ModelViews.CustomerSide;
 using System;
 using System.Collections.Generic;
@@ -13,18 +15,12 @@ namespace BamboPortal_V1._0._0._0.Controllers
         // GET: CustomerSide_Pages
         public ActionResult index()
         {
-            CustomerModelFiller modelFiller = new CustomerModelFiller(4);
-            ///آدرس شعبه ها رو مدلشو ساختم تو مدل ویو هم هست فقط پرش کن
-            var ModelView = new IndexPageModelView()
+            BlogModelFiller BMF = new BlogModelFiller(3);
+            var model = new IndexPageModelView()
             {
-                NewProducts = modelFiller.ChosenProducts("New", 10, "Ago"),
-                Sale_Products = modelFiller.ChosenProducts("Sale", 4, "Ago"),
-                ProductsG3 = modelFiller.ChosenProducts("MainTag", 3, "Ago", 1),
-                SelectedProducts = modelFiller.ProductList(20, "همه", 0, 1, "", "Date")
+                Posts = BMF.UserPostModels("همه", 1, 0, "")
             };
-
-
-            return View(ModelView);
+            return View(model);
         }
 
         public ActionResult AboutUs()
@@ -42,6 +38,82 @@ namespace BamboPortal_V1._0._0._0.Controllers
         public ActionResult Rules()
         {
             return View();
+        }
+
+        public ActionResult ContactUs()
+        {
+
+            return View();
+        }
+
+
+        public ActionResult AfraMaterPostsTypes()
+        {
+
+            BlogModelFiller BMF = new BlogModelFiller();
+
+            return View(BMF.Groups_Filler());
+        }
+
+        public ActionResult BlogMainPageSectionofPost()
+        {
+
+            BlogModelFiller BMF = new BlogModelFiller();
+            var model = new BlogPostsModel()
+            {
+                Posts = BMF.UserPostModels("همه", 1, 7, "")
+
+            };
+
+            return View(model);
+        }
+
+        public ActionResult MainPage()
+        {
+            BlogModelFiller BMF = new BlogModelFiller(3);
+            var model = new BlogPostsModel()
+            {
+                Posts = BMF.UserPostModels("همه", 1, 0, "")
+            };
+            return View(model);
+        }
+
+        public ActionResult ContactUsMessage(string Name, string Email, string Subject, string Message)
+        {
+            PDBC db = new PDBC();
+            List<ExcParameters> parss = new List<ExcParameters>();
+            ExcParameters par = new ExcParameters()
+            {
+                _KEY = "@Name",
+                _VALUE = Name
+            };
+            parss.Add(par);
+
+            par = new ExcParameters()
+            {
+                _KEY = "@Email",
+                _VALUE = Email
+            };
+            parss.Add(par);
+
+            par = new ExcParameters()
+            {
+                _KEY = "@Subject",
+                _VALUE = Subject
+            };
+            parss.Add(par);
+
+            par = new ExcParameters()
+            {
+                _KEY = "@Message",
+                _VALUE = Message
+            };
+            parss.Add(par);
+
+            db.Connect();
+            db.Script("INSERT INTO [tbl_CotactUs]VALUES(@Email,@Name,@Subject,@Message)", parss);
+            db.DC();
+            return Content("Success");
         }
 
     }

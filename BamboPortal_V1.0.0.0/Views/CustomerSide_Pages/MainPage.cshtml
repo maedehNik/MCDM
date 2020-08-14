@@ -1,8 +1,9 @@
-﻿@model BamboPortal_V1._0._0._0.ModelViews.CustomerSide.IndexPageModelView
+﻿@model BamboPortal_V1._0._0._0.Models.CustomerSide.BlogModels.BlogPostsModel
 @{
-    ViewBag.Title = "index";
+    ViewBag.Title = "خانه-MCDMSolver";
     Layout = "~/Views/SharedViewPages/CustomerSide/CustomerMaster.cshtml";
 }
+
 <!--====================================================================
                             Start Section Hero
 ====================================================================-->
@@ -19,11 +20,11 @@
                             </span>
                         </h1>
                         <p>تصمیم گیری چندمعیاره به کمک نرم افزار mcdmsolver</p>
-                        <button onclick="return scrolldw()" href="#" class="button button-md button-radius button-primary">
+                        <a href="#" class="button button-md button-radius button-primary">
                             <i class="fa fa-long-arrow-right"></i>
                             شروع کنید
-                        </button>
-                        <a href="@Url.Action("Blog","CustomerSide_Blog",new {Cat="گروه بندی",Id=3 })" class="button button-md button-radius button-secondary">
+                        </a>
+                        <a href="https://youtu.be/l-epKcOA7RQ" class="button button-md button-radius button-secondary">
                             <i class="fa fa-play"></i>
                             آموزش نرم افزار
                         </a>
@@ -38,7 +39,7 @@
                     <div class="max-w-576 div-center text-center">
                         <h2><span>آخرین مقالات و آموزش ها</span></h2>
                         <p>با مطالب روز دنیا همراه ما باشید</p>
-                        <a href="@Url.Action("Blog","CustomerSide_Blog")" class="button button-md button-radius button-primary">
+                        <a href="@Url.Action("BlogPosts","BlogAPI_Designer")" class="button button-md button-radius button-primary">
                             <i class="fa fa-long-arrow-right"></i>
                             جدیدترین مطالب سایت
                         </a>
@@ -54,7 +55,7 @@
 <!--====================================================================
                             Start Section Features
 ====================================================================-->
-<section id="sec2" class="section section-features section-features-3 section-divider">
+<section class="section section-features section-features-3 section-divider">
     <div class="container">
         <div class="section-title section-title-2 div-center text-center max-w-576">
             <h2>خدمات پایه</h2>
@@ -182,11 +183,11 @@
                             <div class="post-info">
 
                                 <h3>
-                                    <a href="@Url.Action("Blog","CustomerSide_Blog", new {Cat = "گروه بندی", Id = item.GPIDforPostPAge})" rel="tag">
+                                    <a href="@Url.Action("BlogPosts", "BlogAPI_Designer", new {Cat = "گروه بندی", Id = item.GPIDforPostPAge})" rel="tag">
                                         <i class="fa fa-group"></i>
                                         @item.InGroup
                                     </a> :
-                                    <a href="@Url.Action("Blog_Post","CustomerSide_Blog", new {Id = item.Id})">
+                                    <a href="@Url.Action("PostDetails", "BlogAPI_Designer", new {Id = item.Id})">
                                         @item.title
                                     </a>
                                 </h3>
@@ -196,7 +197,7 @@
                                 <p>
                                     @item.text_min
                                 </p>
-                                <a href="@Url.Action("Blog_Post","CustomerSide_Blog", new {Id = item.Id})" class="button-read-more">
+                                <a href="@Url.Action("PostDetails", "BlogAPI_Designer", new {Id = item.Id})" class="button-read-more">
                                     مطالعه بیشتر
                                     <i class="fa fa-long-arrow-right"></i>
                                 </a>
@@ -230,7 +231,7 @@ Start Section Call To Action
         <div class="div-center text-center max-w-576 box">
             <h3>آموزش ها</h3>
             <p>با ما ساده یاد بگیرید</p>
-            <a href="@Url.Action("Blog","CustomerSide_Blog",new {Cat="گروه بندی",Id=3 })" class="button button-md button-radius button-primary">
+            <a href="@Url.Action("MainPage", "BlogAPI_Designer")" class="button button-md button-radius button-primary">
                 <i class="fa fa-long-arrow-right"></i>
                 همه آموزش ها
             </a>
@@ -243,7 +244,72 @@ End Section Call To Action
 <!--====================================================================
                             Start Section About Us
 ====================================================================-->
-@{ Html.RenderAction("BlogMainPageSectionofPost", "CustomerSide_Pages"); }
+<section class="section section-about-us section-about-us-2 section-divider">
+    <div class="container">
+        <div class="owl-carousel" data-items="1" data-nav="true">
+            <div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                        <div class="about-us-box">
+                            <div class="about-us-image" style="background-image: url('@Url.Content("~/CustomerSide_desinerResource/assets/images/about/about-us-2-1.jpg")')"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                        <div class="inner text-left">
+                            <h2>
+                                <span>ما چه کاری انجام میدهیم</span>
+                                استراتژی بسازید ، تجارت خود را بسازید.
+                            </h2>
+                            <div class="divider divider-line"></div>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+                            <div class="feature-item pt-30">
+                                <div class="row row-sm">
+                                    <div class="col-3 col-sm-2">
+                                        <i class="fa fa-flask"></i>
+                                    </div>
+                                    <div class="col-9 col-sm-10">
+                                        <b>ما آینده می سازیم</b>
+                                        <p>طراحی و توسعه انواع سایت در کوتاه ترین زمان</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                        <div class="about-us-box">
+                            <div class="about-us-image" style="background-image: url('@Url.Content("~/CustomerSide_desinerResource/assets/images/about/about-us-2-2.jpg")')"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                        <div class="inner text-left">
+                            <h2>
+                                <span>کاری که ما انجام می دهیم</span>
+                                طراحی، توسعه، پردازش و ارائه
+                            </h2>
+                            <div class="divider divider-line"></div>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+                            <div class="feature-item pt-30">
+                                <div class="row row-sm">
+                                    <div class="col-3 col-sm-2">
+                                        <i class="fa fa-trophy"></i>
+                                    </div>
+                                    <div class="col-9 col-sm-10">
+                                        <b>ماموریت و چشم انداز ما</b>
+                                        <p>طراحی و توسعه انواع سایت در کوتاه ترین زمان</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!--====================================================================
 End Section About Us
 ====================================================================-->
@@ -574,6 +640,91 @@ End Section About Us
                             End Section Pricing
 ====================================================================-->
 <!--====================================================================
+                            Start Section Testimonials
+====================================================================-->
+<section class="section section-testimonials section-testimonials-2 section-divider">
+    <div class="container">
+        <div class="section-title section-title-2 div-center text-center max-w-576">
+            <h2>مشتریان</h2>
+            <h3>حرف های مشتریان</h3>
+            <p>
+                <span class="divider divider-line"></span>
+
+            </p>
+        </div>
+    </div>
+    <span class="bg-color bg-dark-90"></span>
+    <div class="owl-carousel carousel-style-1 carousel-dark" data-margin="30" data-nav="true" data-dots="true" data-loop="true" data-center="true" data-breakpoint="768:2,992:2,1200:3">
+        <div class="testimonial-item">
+            <div class="testimonial-content">
+                <i class="fa fa-quote-right"></i>
+                <h5>پشتیبانی قدرتمند</h5>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+            </div>
+            <div class="testimonial-details">
+                <div class="testimonial-image">
+                    <img src="@Url.Content("~/CustomerSide_desinerResource/assets/images/team/person-1.jpg")" alt="Relevant textual alternative to the author-1 image" />
+                </div>
+                <h4>
+                    جعفر عباسی
+                    <span>همکار ما</span>
+                </h4>
+            </div>
+        </div>
+        <div class="testimonial-item">
+            <div class="testimonial-content">
+                <i class="fa fa-quote-right"></i>
+                <h5>پشتیبانی قدرتمند</h5>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+            </div>
+            <div class="testimonial-details">
+                <div class="testimonial-image">
+                    <img src="@Url.Content("~/CustomerSide_desinerResource/assets/images/team/person-2.jpg")" alt="Relevant textual alternative to the author-2 image" />
+                </div>
+                <h4>
+                    ناصر علی یاری
+                    <span>مشتری ما</span>
+                </h4>
+            </div>
+        </div>
+        <div class="testimonial-item">
+            <div class="testimonial-content">
+                <i class="fa fa-quote-right"></i>
+                <h5>پشتیبانی قدرتمند</h5>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+            </div>
+            <div class="testimonial-details">
+                <div class="testimonial-image">
+                    <img src="@Url.Content("~/CustomerSide_desinerResource/assets/images/team/person-3.jpg")" alt="Relevant textual alternative to the author-3 image" />
+                </div>
+                <h4>
+                    مجتبی شاهی
+                    <span>همکار ما</span>
+                </h4>
+            </div>
+        </div>
+        <div class="testimonial-item">
+            <div class="testimonial-content">
+                <i class="fa fa-quote-right"></i>
+                <h5>پشتیبانی قدرتمند</h5>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+            </div>
+            <div class="testimonial-details">
+                <div class="testimonial-image">
+                    <img src="@Url.Content("~/CustomerSide_desinerResource/assets/images/team/person-4.jpg")" alt="Relevant textual alternative to the author-4 image" />
+                </div>
+                <h4>
+                    مایکل آردص
+                    <span>رئیس ما</span>
+                </h4>
+            </div>
+        </div>
+    </div>
+</section>
+<!--====================================================================
+                            End Section Testimonials
+====================================================================-->
+<!--====================================================================
                             Start Section Users
 ====================================================================-->
 @*<section class="section section-users section-users-2">
@@ -740,13 +891,3 @@ End Section About Us
 <!--====================================================================
                         End Section Call To Action
 ====================================================================-->
-@section CS_Scripts {
-    <script>
-        function scrolldw() {
-            $('html, body').animate({
-                scrollTop: $("#sec2").offset().top
-            }, 1500);
-            return false;
-        }
-    </script>
-}

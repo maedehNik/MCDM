@@ -1,0 +1,44 @@
+﻿@model BamboPortal_V1._0._0._0.Models.CustomerSide.BlogModels.BlogPostsModel
+@{
+    ViewBag.Title = "BlogMainPageSectionofPost";
+}
+
+
+<section class="section section-about-us section-about-us-2 section-divider">
+    <div class="container">
+        <div class="owl-carousel" data-items="3" data-nav="true">
+            @foreach (var item in Model.Posts)
+            {
+
+                <div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <div class="about-us-box" style="height: 300px;">
+                                <div class="about-us-image" style="background-image: url('@item.ImagePath')"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <div class="inner text-left">
+                                <h2>
+
+                                    @item.title
+                                </h2>
+                                <div class="divider divider-line"></div>
+                                <p>@item.text_min</p>
+                                <h2>
+
+                                    <span><a href="@Url.Action("Blog_Post", "CustomerSide_Blog", new {Id = item.Id})">مشاهده کامل مقاله</a></span>
+                                </h2>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

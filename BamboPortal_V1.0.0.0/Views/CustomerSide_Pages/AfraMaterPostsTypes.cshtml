@@ -1,0 +1,15 @@
+﻿@using BamboPortal_V1._0._0._0.Models.CustomerSide
+@model List<Id_ValueModel>
+
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+
+    <li>
+        <a href="@Url.Action("Blog","CustomerSide_Blog",new {Cat="گروه بندی",Id=item.Id })">@item.Value</a>
+    </li>
+
+}

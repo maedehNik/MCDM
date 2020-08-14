@@ -6,264 +6,226 @@
 }
 
 <!DOCTYPE html>
-<html itemscope="" itemtype="http://schema.org/WebPage" lang="fa-IR" dir="rtl">
-
+<html dir="rtl" lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>آفرا - قالب شرکتی و آژانسی چند منظوره</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1">
     <meta name="description" content="">
     <meta name="keywords" content="">
-
-
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- Loading Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
-
-    @Styles.Render("~/Content/CustomerSide.css")
-    @Scripts.Render("~/bundles/CustomerSide.js")
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,300,500,600,700&amp;display=swap">
+    @Styles.Render("~/assets/Afra.css")
 </head>
+<body>
+    <input id="AddressPicLogoDark" value="@Url.Content("~/CustomerSide_desinerResource/assets/images/logo/logo-dark.png")" style="display: none" />
+    <input id="AddressPicLogoLight" value="@Url.Content("~/CustomerSide_desinerResource/assets/images/logo/logo-light.png")" style="display: none" />
 
-<body class="header-left-side rtl">
-    <div class="alert-bg col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="alert-inner col-lg-4 col-md-4 col-sm-8 col-xs-12">
-            <span><i class="fa fa-times"></i></span>
-            <div style="text-align: center; margin: auto; height: 200px; padding: 35px; max-width:300px ">
-                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                     viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve" preserveAspectRatio="xMidYMid meet" width="100%" height="100%">
-                <g>
-                <circle class="circle" cx="50" cy="49.9999657" r="47.5" />
+    <header class="site-header sticky-header">
+        <div class="container">
+            <nav class="main-bar">
+                <div class="logo">
+                    <a href="@Url.Action("Index", "CustomerSide_Pages")">
+                        <img src="@Url.Content("~/CustomerSide_desinerResource/assets/images/logo/logo-light.png")" alt="MCDM-Solver,MCDMSolver" />
+                    </a>
+                </div>
+                <button class="button button-open-sidenav">
+                    <span></span>
+                </button>
+                <ul class="menu">
+                    <li>
+                        <a href="@Url.Action("Index", "CustomerSide_Pages")">صفحه اصلی</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Blog","CustomerSide_Blog",new {Cat="گروه بندی",Id=1 })">نرم افزار</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Blog","CustomerSide_Blog",new {Cat="گروه بندی",Id=3 })">آموزش</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("AboutUs", "CustomerSide_Pages")">درباره ما</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("ContactUs", "CustomerSide_Pages")">تماس با ما</a>
+                    </li>
+                    <li>
+                        <a href="#">تمامی دسته بندی ها</a>
+                        <ul class="mega-menu">
+                            @{ Html.RenderAction("AfraMaterPostsTypes", "CustomerSide_Pages"); }
 
-
-
-
-
-
-
-                <circle class="circle-dash" cx="50" cy="49.9999657" r="47.5" />
-
-
-
-
-
-
-
-                <polyline class="check" points="28.6469955,52.0561066 42.2152748,65.6243896 71.3530045,36.4866562 	" />
-
-
-
-
-
-
-
-                <polyline class="check-dash" points="28.6469955,52.0561066 42.2152748,65.6243896 71.3530045,36.4866562 	" />
-
-
-
-
-
-
-
-                </g>
-            </svg>
+                        </ul>
+                    </li>
+                    <li class="login-register">
+                        <a href="@Url.Action("LoginAndRegister", "CustomerSide_Register")"><span>ورود / عضویت</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!--====================================================================
+                                End Header
+    ====================================================================-->
+    <!--====================================================================
+                                Start Responsive Header
+    ====================================================================-->
+    <div class="site-sidenav">
+        <div class="sidenav-menu">
+            <div class="logo">
+                <img src="@Url.Content("~/CustomerSide_desinerResource/assets/images/logo/logo-dark.png")" alt="MCDM-Solver,MCDMSolver">
             </div>
-            <span class="alert-text">
-            </span>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: left;margin-bottom: 15px;padding-left: 0;padding-right: 0;">
-                <button class="btn btn-primary conf-btn">تایید</button>
-            </div>
+            <button class="button button-circle button-close-sidenav"></button>
+            <ul class="menu">
+                <li class="">
+                    <a href="@Url.Action("Index", "CustomerSide_Pages")">
+                        صفحه اصلی
+
+                    </a>
+
+                </li>
+                <li>
+                    <a href="@Url.Action("Blog","CustomerSide_Blog",new {Cat="گروه بندی",Id=1 })">نرم افزار</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Blog","CustomerSide_Blog",new {Cat="گروه بندی",Id=3 })">آموزش</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("AboutUs", "CustomerSide_Pages")">درباره ما</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ContactUs", "CustomerSide_Pages")">تماس با ما</a>
+                </li>
+                <li class="has-menu">
+                    <a href="#">
+                        تمامی دسته بندی ها
+                        <i class="fa fa-chevron-right"></i>
+                    </a>
+                    <ul class="mega-menu">
+                        @{ Html.RenderAction("AfraMaterPostsTypes", "CustomerSide_Pages"); }
+                    </ul>
+                </li>
+                <li class="login-register2">
+                    <a href="@Url.Action("LoginAndRegister", "CustomerSide_Register")"><span>ورود / عضویت</span></a>
+                </li>
+
+            </ul>
+
         </div>
     </div>
-    <div class="alert-bg2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="alert-inner col-lg-4 col-md-4 col-sm-8 col-xs-12">
-            <span><i class="fa fa-times"></i></span>
-            <div style="text-align: center; margin: auto; height: 200px; padding: 35px; max-width:300px ">
-                <img src="~/CustomerSide_desinerResource/images/close.png" alt="">
-            </div>
-            <span class="alert-text">
-            </span>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: left;margin-bottom: 15px;padding-left: 0;padding-right: 0;">
-                <button class="btn btn-primary conf-btn">تایید</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="LoaderSpinner" class="loader">
-        <div class="spinner"></div>
-    </div>
-
-    <div class="page-content">
-
-        <header class="navigation transparent">
-            <div class="main-nav nav-pill full-width header-left">
-                <div class="navbar navbar-default" role="navigat ion">
-                    <div class="container">
-                        <div class="navbar-header">
-                            <a class="logo" href=".">
-                                <img alt="image" src="~/CustomerSide_desinerResource/images/logo-dark.png" />
-                            </a>
-                        </div>
-                        <div class="navbar-icons">
-                            <ul class="nav navbar-nav navbar-left">
-                                <li class="menu-icon">
-                                    <a class="full-screen-menu-trigger" href="#">
-                                        <ul class="bar-icon-wrapper">
-                                            <li class="bar-icon"></li>
-                                            <li class="bar-icon"></li>
-                                            <li class="bar-icon"></li>
-                                        </ul>
-                                    </a>
-                                </li>
-                                <li class="nav-shop nav-shop-fullscreen">
-                                    <a href="#" class="shopping-cart-trigger"><i class="shop-icon icon-basket"></i></a>
-                                </li>
-                            </ul>
+    <!--====================================================================
+                                End Responsive Header
+    ====================================================================-->
+    @RenderBody()
+    <!--====================================================================
+                                Start Footer
+    ====================================================================-->
+    <footer class="site-footer overlay-image overlay-color" style="background-image: url(assets/images/footer.jpg)">
+        <span class="bg-color bg-dark-80"></span>
+        <div class="footer-widgets">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                        <div class="widget">
+                            <div class="widget-head">
+                                <h4 class="widget-title">درباره ما</h4>
+                                <div class="divider divider-line"></div>
+                            </div>
+                            <div class="widget-body">
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                                <ul class="footer-social-links">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-linkedin"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="full-screen-header">
-                        <div class="nav-container">
-                            <div class="nav-holder">
-                                <div class="inner-content">
-                                    <ul class="full-screen-nav">
-                                        <li><a href="@Url.Action("index", "CustomerSide_Pages")" style="letter-spacing: 0px;">خانه</a></li>
-                                        <li><a href="@Url.Action("AboutUs", "CustomerSide_Pages")" style="letter-spacing: 0px;">درباره ما</a></li>
-                                        <li class="with-dropdown">
-                                            <a href="#" class="menu-dropdown-link" data-toggle="collapse" aria-expanded="true" style="letter-spacing: 0px;">ناحیه کاربری <span class="dropdown-icon"></span></a>
-                                            <ul class="menu-dropdown collapse">
-                                                <li><a href="@Url.Action("customerProfile", "CustomerSide_CustomerProfile")" style="letter-spacing: 0px;">ناحیه کاربری</a></li>
-                                                <li><a href="#" style="letter-spacing: 0px;">تسویه حساب (2) مورد</a></li>
-                                                @*<li><a href="@Url.Action("customerProfile", "CustomerSide_CustomerProfile")" style="letter-spacing: 0px;">تغییر اطلاعات حساب کاربری</a></li>*@
-                                                <li><a href="@Url.Action("factor", "CustomerSide_Product")" style="letter-spacing: 0px;">فاکتورها</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="@Url.Action("search", "CustomerSide_Product", new { Type = "همه", Id = 1 })" style="letter-spacing: 0px;">محصولات</a></li>
-                                        <li><a href="@Url.Action("Rules", "CustomerSide_Pages")" style="letter-spacing: 0px;">قوانین</a></li>
-                                        <li><a href="SiteMap.aspx" title="SiteMap" style="letter-spacing: 0px;">نقشه سایت</a></li>
-                                    </ul>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                        <div class="widget">
+                            <div class="widget-head">
+                                <h4 class="widget-title">تماس با ما</h4>
+                                <div class="divider divider-line"></div>
+                            </div>
+                            <div class="widget-body">
+                                <ul class="footer-link">
+                                    <li>
+                                        <i class="fa fa-envelope"></i>
+                                        info@afracodestudio.com
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-envelope"></i>
+                                        support@afracodestudio.com
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-phone"></i>
+                                        777-555-2222
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-phone"></i>
+                                        888-444-2222
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                        <div class="widget">
+                            <div class="widget-head">
+                                <h4 class="widget-title">خبرنامه</h4>
+                                <div class="divider divider-line"></div>
+                            </div>
+                            <div class="widget-body">
+                                <p>با عضویت در خبرنامه ما از جدید ترین اخبار سایت مطلع شوید.</p>
+                                <div class="form-item">
+                                    <i class="fa fa-envelope"></i>
+                                    <input type="text" class="input" placeholder="وارد کردن ایمیل">
+                                    <button type="submit" class="button button-circle button-primary">
+                                        <i class="fa fa-send"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <div class="credits">
-                            <span>تمامی حقوق مادی و معنوی این سایت متعلق به <i class="fa fa-copyright"></i>گالری پارچه ولوت میباشد </span>
-                            <br />
-                            <span>طراحی شده توسط <i class="fa fa-cloud"></i>توسعه سیستم هوشمند پاندا</span>
-                        </div>
                     </div>
                 </div>
             </div>
-        </header>
-        <div id="ShoppingCartSlide">
-
-        @{ Html.RenderAction("ShoppingCartSlide", "CustomerSide_Product"); }
         </div>
-
-        @RenderBody()
-
-        <footer class="footer" style="margin-top: 0px !important;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <img alt="image" class="img-responsive" src="~/CustomerSide_desinerResource/images/logo-dark-big.png">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <h4 class="footer-title">نماد اعتماد الکترونیک :</h4>
-                            <div class="col-md-12">
-                                <img alt="image" class="img-responsive" src="~/CustomerSide_desinerResource/images/Enamad.png">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <h4 class="footer-title">شعبه شماره 1 :</h4>
-                        <p>
-                            Suite 101, Alpha Building, Creek Street,<br>
-                            City, 100001,<br>
-                            Country<br>
-                            E- <a href="#">support@revelo.com</a><br>
-                            P- <a href="#">+1 101 0000001</a><br>
-                            F- <a href="#">+1 101 1000001</a>
-                        </p>
-                        <br>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d808.9394280925661!2d51.43142306470913!3d35.80588097728032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x28b271f00e6177d4!2z2LTYudio2Ycg2YXYsdqp2LLbjCDZvtin2LHahtmHINmI2YTZiNiq!5e0!3m2!1sen!2sus!4v1580312708942!5m2!1sen!2sus" height="200" frameborder="0" style="width: 100%; border-width: 3px; border-color: #e1306c; border-style: dotted;" allowfullscreen="true"></iframe>
-                        <ul class="social-icons list-inline list-unstyled si-light circle inverse" style="text-align: center; display: flow-root;">
-                            <li><a href="#" class="Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
-                            <li><a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <h4 class="footer-title">شعبه شماره 1 :</h4>
-                        <p>
-                            Suite 101, Alpha Building, Creek Street,<br>
-                            City, 100001,<br>
-                            Country<br>
-                            E- <a href="#">support@revelo.com</a><br>
-                            P- <a href="#">+1 101 0000001</a><br>
-                            F- <a href="#">+1 101 1000001</a>
-                        </p>
-                        <br>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d808.9394280925661!2d51.43142306470913!3d35.80588097728032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x28b271f00e6177d4!2z2LTYudio2Ycg2YXYsdqp2LLbjCDZvtin2LHahtmHINmI2YTZiNiq!5e0!3m2!1sen!2sus!4v1580312708942!5m2!1sen!2sus" height="200" frameborder="0" style="width: 100%; border-width: 3px; border-color: #e1306c; border-style: dotted;" allowfullscreen="true"></iframe>
-                        <ul class="social-icons list-inline list-unstyled si-light circle inverse" style="text-align: center; display: flow-root;">
-                            <li><a href="#" class="Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
-                            <li><a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3">
-                        <h4 class="footer-title">شعبه شماره 1 :</h4>
-                        <p>
-                            Suite 101, Alpha Building, Creek Street,<br>
-                            City, 100001,<br>
-                            Country<br>
-                            E- <a href="#">support@revelo.com</a><br>
-                            P- <a href="#">+1 101 0000001</a><br>
-                            F- <a href="#">+1 101 1000001</a>
-                        </p>
-                        <br>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d808.9394280925661!2d51.43142306470913!3d35.80588097728032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x28b271f00e6177d4!2z2LTYudio2Ycg2YXYsdqp2LLbjCDZvtin2LHahtmHINmI2YTZiNiq!5e0!3m2!1sen!2sus!4v1580312708942!5m2!1sen!2sus" height="200" frameborder="0" style="width: 100%; border-width: 3px; border-color: #e1306c; border-style: dotted;" allowfullscreen="true"></iframe>
-                        <ul class="social-icons list-inline list-unstyled si-light circle inverse" style="text-align: center; display: flow-root;">
-                            <li><a href="#" class="Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
-                            <li><a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copyright">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 text-left-desktop">
-                            <p class="text-secondary letter-spacing-1">کپی رایت© تمامی حقوق مادی و معنوی  محفوظ برند <a href=".">وِلوِت</a> میباشد</p>
-                            <a href="#">
-                                <p class="text-secondary letter-spacing-1">طراحی شده توسط شرکت توسعه سیستم هوشمند پاندا</p>
-                            </a>
-
-                        </div>
-                        <div class="col-md-6 copyright-right">
-                            <ul class="list-unstyled list-inline footer-inline-links">
-                                <li><a href="@Url.Action("Rules","CustomerSide_Pages")">قوانین و مقررات</a></li>
-                                @*<li><a href="contact.html">ارتباط با ما</a></li>*@
-                                <li><a href="@Url.Action("AboutUs","CustomerSide_Pages")">درباره ما</a></li>
-                                @*<li><a href="sitemap.html">نقشه سایت</a></li>*@
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
+        <div class="footer-copyright">
+            <p class="copyright">© 1398 تمامی حقوق محفوظ شده است (بومی سازی توسط جعفر عباسی)</p>
+        </div>
+    </footer>
+    <!--====================================================================
+                                End Footer
+    ====================================================================-->
+    <!--====================================================================
+                                Start Scroll To Up
+    ====================================================================-->
+    <div class="scroll-up">
+        <i class="fa fa-angle-up"></i>
     </div>
-
-
-    @Scripts.Render("~/bundles/CustomerSide2.js")
-
+    <!--====================================================================
+                                End Scroll To Up
+    ====================================================================-->
+    @Scripts.Render("~/bundles/Afra.js")
     @RenderSection("CS_Scripts", required: false)
 </body>
+
+
 </html>
 
 

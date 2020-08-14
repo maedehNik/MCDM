@@ -4,192 +4,163 @@
     Layout = "~/Views/SharedViewPages/CustomerSide/CustomerMaster.cshtml";
 }
 
-<div class="theme-background-section full-screen fs-overlay">
-    <div class="content-container">
-        <div class="content-inner-container log-reg-res">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-4 col-md-offset-4">
-                        <ul class="nav tab-theme tab-bg pricing-tab-2-col pt0-res">
-                            <li class="active" style="float: right">
-                                <a href="#tab1" data-toggle="tab">ورود</a>
-                            </li>
-                            <li style="float: left">
-                                <a href="#tab2" data-toggle="tab">ثبت نام</a>
-                            </li>
-                        </ul>
-                        <div class="tab-theme login-register">
-                            <div class="tab-content">
-                                <div id="tab1" class="tab-pane active pad-top-50">
-                                    <div class="row">
-                                        <div class="col-md-12 no-padding-side">
-                                            <div class="form-theme form-grey">
-                                                <div>
-                                                    <div class="form-group pad-bot-15">
-                                                        <label for="mobiless" class="control-label text-uppercase letter-spacing-3 pad-bot-5" style="width: 100%;letter-spacing: 0px !important;">شماره موبایل<i class="icon-phone text-right tsh-icon" style="float: left;"></i></label>
-                                                        <input type="number" class="form-control" name="mobiless" id="mobiless">
-                                                    </div>
-                                                    <div class="form-group pad-bot-15">
-                                                        <label for="password" class="control-label text-uppercase letter-spacing-3 pad-bot-5" style="width: 100%;letter-spacing: 0px !important;">کلمه عبور<i class="icon-lock text-right tsh-icon" style="float: left;"></i></label>
-                                                        <input type="password" class="form-control" name="password" id="password">
-                                                        @*<a href="#" class="text-light letter-spacing-2 text-uppercase mar-top-5 forgot-password" style="font-size: 11px; letter-spacing: 0px!important; color: black!important;text-align: left;width: 100%;display: block">رمز عبور خود را فراموش کرده اید؟</a>*@
-                                                    </div>
-                                                    <button class="btn btn-success form-submit login-submit"  onclick="return Login()">ورود</button>
-                                                </div>
-                                            </div>
-                                        </div>
+<!--====================================================================
+                            Start Section Breadcrumb
+====================================================================-->
+<section class="section-breadcrumb overlay-color" style="background-image: url(@Url.Content("~/CustomerSide_desinerResource/assets/MasterAfra.jpg"));">
+    <span class="bg-color bg-dark-60"></span>
+    <div class="container pt-90 pb-90 vertical-wrap">
+        <div class="vertical-inner text-center">
+            <h1>ثبت نام در سامانه<span>برای تعامل بیشتر و استفاده از نرم افزار میتوانید از این قسمت ثبت نام فرمایید</span></h1>
+        </div>
+        <!--<div class="breadcrumb-box">
+            <div class="row row-0">
+                <div class="col-12 col-sm-8">
+                    <ol class="breadcrumb text-light">
+                        <li>
+                            <a href="#" class="breadcrumb-icon">
+                                <i class="fa fa-home"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">صفحات</a>
+                        </li>
+                        <li>
+                            <a href="#">تماس</a>
+                        </li>
+                        <li class="active">ارتباط</li>
+                    </ol>
+                </div>
+                <div class="col-12 col-sm-4">
+                    <div class="breadcrumb-search text-right">
+                        <button class="button button-circle">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <input type="text" placeholder="جستجو ...">
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</section>
+
+<section class="section section-contact-us section-contact-us-1">
+    <div class="container">
+        <div class="row loginregister">
+            <div class="col-12 col-md-12 col-lg-6">
+                <h3 class="mb-30">ورود</h3>
+                <form class="form form-simple" id="loginform">
+                    <div class="row row-sm">
+                        <div class="form-item col-12 col-sm-12">
+                            <input type="number" name="phone" placeholder="شماره موبایل">
+                        </div>
+                        <div class="form-item col-12 col-sm-12">
+                            <input type="text" name="pw" placeholder="رمز عبور">
+                            @*<small class="forgot-pw">رمز عبور خود را فراموش کرده اید؟</small>*@
+                        </div>
+                        <div class="col-12 col-sm-12" style="text-align: left">
+                            <button class="button button-md button-primary" onclick="return reglog()">ورود</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            @*<div class="modal fade" id="forgot-pw-div">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="forgot-pw-div-title" style="float: right">دریافت رمز عبور جدید</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float: left;position: absolute;left: 0;">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form form-simple" id="pw-form">
+                                    <div class="form-item col-12 col-sm-12 mt-25">
+                                        <input type="number" name="phone2" placeholder="شماره موبایل">
                                     </div>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 forgot-password-bg">
-                                    <div class="forgot-password-inner col-lg-4 col-md-4 col-sm-8 col-xs-12 form-theme form-grey">
-                                        <h5>
-                                            فراموشی رمز عبور
-                                            <i class="fa fa-times"></i>
-                                        </h5>
-                                        <form action="" method="post" autocomplete="off" id="reset-pw-form">
-                                            <div class="form-group pad-bot-15">
-                                                <label for="resetmobile" class="control-label text-uppercase letter-spacing-3 pad-bot-5" style="width: 100%;letter-spacing: 0px !important;">شماره موبایل<i class="icon-phone text-right tsh-icon" style="float: left;"></i></label>
-                                                <input type="number" class="form-control" name="resetmobile" id="resetmobile">
-                                            </div>
-                                            <input type="submit" class="btn btn-primary form-submit" value="ارسال رمز عبور جدید">
-                                        </form>
-                                    </div>
-                                </div>
-                                <div id="tab2" class="tab-pane pad-top-50">
-                                    <div class="row">
-                                        <div class="col-md-12 no-padding-side">
-                                            <div class="form-theme form-grey">
-                                                <form action="" method="post" autocomplete="off" id="registration-form">
-                                                    <div class="form-group pad-bot-15">
-                                                        <label for="firstname" class="control-label text-uppercase letter-spacing-3 pad-bot-5" style="width: 100%;letter-spacing: 0px !important;">نام<i class="icon-profile-male text-right tsh-icon" style="float: left;"></i></label>
-                                                        <input type="text" class="form-control" name="firstname" id="firstname" />
-                                                    </div>
-                                                    <div class="form-group pad-bot-15">
-                                                        <label for="lastname" class="control-label text-uppercase letter-spacing-3 pad-bot-5" style="width: 100%;letter-spacing: 0px !important;">نام خانوادگی<i class="icon-profile-male text-right tsh-icon" style="float: left;"></i></label>
-                                                        <input type="text" class="form-control" name="lastname" id="lastname" />
-                                                    </div>
-                                                    <div class="form-group pad-bot-15">
-                                                        <label for="sumobile" class="control-label text-uppercase letter-spacing-3 pad-bot-5" style="width: 100%;letter-spacing: 0px !important;">شماره موبایل<i class="icon-phone text-right tsh-icon" style="float: left;"></i></label>
-                                                        <input type="number" class="form-control" name="sumobile" id="sumobile" />
-                                                    </div>
-                                                    <div class="form-group pad-bot-15">
-                                                        <label for="supassword" class="control-label text-uppercase letter-spacing-3 pad-bot-5" style="width: 100%;letter-spacing: 0px !important;">کلمه عبور<i class="icon-lock text-right tsh-icon" style="float: left;"></i></label>
-                                                        <input type="password" class="form-control" name="supassword" id="supassword" />
-                                                    </div>
-                                                    <div class="form-group pad-bot-15">
-                                                        <label for="surpassword" class="control-label text-uppercase letter-spacing-3 pad-bot-5" style="width: 100%;letter-spacing: 0px !important;">تکرار کلمه عبور<i class="icon-lock text-right tsh-icon" style="float: left;"></i></label>
-                                                        <input type="password" class="form-control" name="surpassword" id="surpassword" />
-                                                    </div>
-                                                    <div class="form-group pad-bot-15 custom-check-reg">
-                                                        <input type="checkbox" class="option-input form-control checkbox" name="ghinput" />
-                                                        <a href="#">قوانین</a>
-                                                        را قبول دارم
-                                                    </div>
-                                                    <input type="submit" class="btn btn-primary form-submit reg-submit" value="درحال حاضر امکان ثبت نام وجود ندارد" disabled="disabled">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary send-pw-btn">ارسال</button>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*@
+            <div class="col-12 col-md-12 col-lg-6">
+                <h3 class="mb-30">عضویت</h3>
+                <form class="form form-simple" id="reg-form">
+                    <div class="row row-sm">
+                        <div class="form-item col-12 col-sm-6">
+                            <input name="fn" type="text" placeholder="نام">
+                        </div>
+                        <div class="form-item col-12 col-sm-6">
+                            <input name="ln" type="text" placeholder="نام خانوادگی">
+                        </div>
+                        <div class="form-item col-12 col-sm-6">
+                            <input name="phone" type="number" placeholder="شماره موبایل">
+                        </div>
+                        <div class="form-item col-12 col-sm-6">
+                            <select id="so" name="so">
+                                <option value="" selected>انتخاب کنید</option>
+                                <option value="">هیات علمی</option>
+                                <option value="">دانشجو</option>
+                            </select>
+                        </div>
+                        <div class="form-item col-12 col-sm-6">
+                            <input name="pw" type="text" placeholder="رمز عبور">
+                        </div>
+                        <div class="form-item col-12 col-sm-6">
+                            <input name="pwr" type="text" placeholder="تکرار رمز عبور">
+                        </div>
+                        <div class="col-12 col-sm-12" style="text-align: left">
+                            <button class="button button-md button-primary" onclick="return reglog()">عضویت</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!--====================================================================
+                            End Section Breadcrumb
+====================================================================-->
+<div class="modal fade" id="modal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="border: none!important;">
+            <div class="modal-header" style="background-color: #28a745;width: 100%;">
+                <h5 class="modal-title" id="modal-title" style="float: right;color:#fff;">title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float: left;color: white">
+                    <span style="color: white!important;" aria-hidden="true"><i style="color: white!important;" class="fa fa-times"></i></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                body
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" style="float:left;background-color: #000;color: #fff;" data-dismiss="modal">تایید</button>
             </div>
         </div>
     </div>
 </div>
 
+
 @section CS_Scripts {
-    @*<script>
-            var revapi;
-            jQuery(document).ready(function () {
-                setInterval(function () {
-                    $('.owl-prev').trigger('click');
-                }, 3000);
-
-
-                revapi = jQuery("#rev_slider_1").revolution({
-                    sliderType: "standard",
-                    sliderLayout: "fullscreen",
-                    fullScreenOffsetContainer: ".navigation",
-                    delay: 9000,
-                    navigation: {
-                        keyboardNavigation: "off",
-                        mouseScrollNavigation: "on",
-                        onHoverStop: "off",
-                        touch: {
-                            touchenabled: "on",
-                            swipe_threshold: 75,
-                            swipe_min_touches: 1,
-                            swipe_direction: "horizontal",
-                            drag_block_vertical: false
-                        },
-                        bullets: {
-                            enable: true,
-                            rtl: true,
-                            hide_onmobile: false,
-                            style: "hebe",
-                            hide_onleave: false,
-                            direction: "horizontal",
-                            h_align: "center",
-                            v_align: "bottom",
-                            h_offset: 0,
-                            v_offset: 10,
-                            space: 5,
-                            tmp: '<span class="tp-bullet-inner"></span>'
-                        }
-                    },
-                    responsiveLevels: [4096, 1024, 767, 480],
-                    gridwidth: 1230,
-                    gridheight: 720
-                });
-
-                $("#LoaderSpinner").hide(0);
-            }); /*ready*/
-        </script>*@
-    @Scripts.Render("~/bundles/CustomerSideUserProfile.js")
-    @*@Scripts.RenderFormat(SiteKeys.ScriptVersion, "~/bundles/CustomerSideUserProfile.js")*@
     <script>
-        $(document).ready(function () {
+        function danger(title, body) {
+            $(".modal-header").css({ "background-color": "#dc3545" });
+            $(".modal-title").text(title);
+            $(".modal-body").text(body);
+            setTimeout(function () {
+                $("#modal").modal();
+            },
+                200);
+        }
 
-            //danger("ثبت نام با موفقت انجام نشد");
-        });
-
-        function Login() {
-            $("#LoaderSpinner").show(300);
-            var PostJ = {
-                "mobile": $("#mobiless").val(),
-                "password": $("#password").val()
-            };
-            $.ajax({
-                url: '/CustomerSide_Register/LoginAuth',
-                type: "post",
-                data: JSON.stringify(PostJ),
-                contentType: "application/json; charset=utf-8",
-                success: function (data) {
-                    if (data.Errortype == "Success") {
-                        success("ورود با موفقیت انجام شد");
-                        setTimeout(function () {
-                            window.location.replace(window.location.origin);
-                        }, 1000);
-                    } else {
-                        danger(data.Errormessage);
-                        setTimeout(function () {
-                            $("#LoaderSpinner").hide(300);
-                        }, 1000);
-                    }
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    danger("مشکل در برقراری ارتباط با سرور");
-                    setTimeout(function () {
-                        $("#LoaderSpinner").hide(300);
-                    }, 1000);
-
-                }
-            });
+        function reglog() {
+            danger("مشترک گرانقدر", "متاسفانه تا زمان بارگزاری اپلیکیشن MCDM بخش ثبت نام در دسترس نمیباشد");
             return false;
         }
-    </script>
 
+
+    </script>
 }

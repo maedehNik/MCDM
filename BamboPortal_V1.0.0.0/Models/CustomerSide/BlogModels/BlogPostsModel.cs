@@ -1,14 +1,11 @@
-﻿using BamboPortal_V1._0._0._0.Models;
-using BamboPortal_V1._0._0._0.Models.CustomerSide;
-using BamboPortal_V1._0._0._0.Models.CustomerSide.BlogModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BamboPortal_V1._0._0._0.ModelViews.CustomerSide
+namespace BamboPortal_V1._0._0._0.Models.CustomerSide.BlogModels
 {
-    public class IndexPageModelView
+    public class BlogPostsModel
     {
         public List<Id_ValueModel> Categories { get; set; }
         public List<Id_ValueModel> GroupsList { get; set; }
@@ -19,6 +16,5 @@ namespace BamboPortal_V1._0._0._0.ModelViews.CustomerSide
         public string Cat { get; set; }
         public int Id { get; set; }
         public string SearchNAmeHeaderH1 { get; set; }
-
     }
 }

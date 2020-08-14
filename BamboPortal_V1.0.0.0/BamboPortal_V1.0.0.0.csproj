@@ -153,6 +153,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ModelFiller\CustomerSide\BlogModelFiller.cs" />
     <Compile Include="ModelFiller\CustomerSide\CustomerModelFiller.cs" />
     <Compile Include="Models\Administrator.cs" />
     <Compile Include="Models\AdministratorBlogModels\AddBlogCatModel.cs" />
@@ -196,6 +197,11 @@
     <Compile Include="Models\AdministratorUploader\ReturnedSaveImages.cs" />
     <Compile Include="Models\AdministratorUploader\UploaderModelToAlertSizes.cs" />
     <Compile Include="Models\AdministratorValidation.cs" />
+    <Compile Include="Models\CustomerSide\BlogModels\BlogPics.cs" />
+    <Compile Include="Models\CustomerSide\BlogModels\BlogPostsModel.cs" />
+    <Compile Include="Models\CustomerSide\BlogModels\CustomerSidePostModel.cs" />
+    <Compile Include="Models\CustomerSide\BlogModels\SinglePostModel.cs" />
+    <Compile Include="Models\CustomerSide\BlogModels\SinglePostPostDetail.cs" />
     <Compile Include="Models\CustomerSide\PersonalDataModels\ActivationModel.cs" />
     <Compile Include="Models\CustomerSide\PersonalDataModels\AddressModel.cs" />
     <Compile Include="Models\CustomerSide\BlogModels\blogclass.cs" />
@@ -2356,6 +2362,7 @@
     <Content Include="CustomerSide_desinerResource\assets\js\jquery.validate.js" />
     <Content Include="CustomerSide_desinerResource\assets\js\main-scripts.js" />
     <Content Include="CustomerSide_desinerResource\assets\js\plugins.min.js" />
+    <Content Include="CustomerSide_desinerResource\assets\MasterAfra.jpg" />
     <Content Include="DatabaseCenter\SQL Scripts\1399\Khordad\Note\notedb.txt" />
     <Content Include="DatabaseCenter\SQL Scripts\1399\Khordad\Script\bambopoertalSqcScript.sql" />
     <Content Include="DatabaseCenter\SQL Scripts\1399\Mordad\13\all.sql" />
@@ -2420,6 +2427,14 @@
     <Content Include="Views\AdminstratorBlog\Add_Blog_Category.cshtml" />
     <Content Include="Views\AdminstratorBlog\Add_Blog_Tags.cshtml" />
     <Content Include="Views\AdminstratorBlog\_PostTableItem.cshtml" />
+    <Content Include="Views\CustomerSide_Pages\AfraMaterPostsTypes.cshtml" />
+    <Content Include="Views\CustomerSide_Blog\Blog.cshtml" />
+    <Content Include="Views\CustomerSide_Pages\BlogMainPageSectionofPost.cshtml" />
+    <Content Include="Views\CustomerSide_Pages\ContactUs.cshtml" />
+    <Content Include="Views\CustomerSide_Blog\Blog_Post.cshtml" />
+    <Content Include="Views\CustomerSide_Blog\BlogPosts.cshtml" />
+    <Content Include="Views\CustomerSide_Pages\MainPage.cshtml" />
+    <Content Include="Views\CustomerSide_Blog\PostDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2428,7 +2443,6 @@
     <Folder Include="UploadedImages\" />
     <Folder Include="Views\AdminRules_ProductCTRL\" />
     <Folder Include="Views\CustomerSide_BlogRule\" />
-    <Folder Include="Views\CustomerSide_Blog\" />
     <Folder Include="Views\CustomerSide_CustomerProfileRule\" />
     <Folder Include="Views\CustomerSide_CustomerRule\" />
     <Folder Include="WebConfigNotes\" />
