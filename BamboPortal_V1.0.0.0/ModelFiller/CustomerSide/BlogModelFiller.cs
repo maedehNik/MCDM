@@ -285,7 +285,7 @@ namespace BamboPortal_V1._0._0._0.ModelFiller.CustomerSide
                 Query.Append(") * from(SELECT NTILE(");
             }
             Query.Append(num);
-            Query.Append(")over(order by(Date)DESC)as tile,[Cat_Id],[GroupId],[Id],[Title],[Text_min],[Text],[ad_firstname]+' '+[ad_lastname] AS adminName,[AdminPic],[Date],[weight],[Is_Deleted],[Is_Disabled],[G_Id] AS GroupId,[GroupName],[Category],[Pic] FROM [v_CustomerSide_BlogPostList]");
+            Query.Append(")over(order by(Date)DESC)as tile,[Cat_Id],[GroupId],[Id],[Title],[Text_min],[Text],[ad_firstname]+' '+[ad_lastname] AS adminName,[AdminPic],[Date],[weight],[Is_Deleted],[Is_Disabled],[G_Id],[GroupName],[Category],[Pic] FROM [v_CustomerSide_BlogPostList]");
 
             if (Cat == "همه")
             {
